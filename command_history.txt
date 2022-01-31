@@ -1,0 +1,9 @@
+root@u-45755:/home/user/Docker# docker run -d -p 127.0.0.1:8889:80 -v /home/user/Docker/task2/nginx.conf:/etc/nginx/nginx.conf --name rbm-dkr-02 nginx:stable 
+95693288741b4809a87baf55e1f33700b1e75ca1e08a4b7b9156d29802ab1dae
+root@u-45755:/home/user/Docker# docker ps 
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                    NAMES
+95693288741b   nginx:stable   "/docker-entrypoint.…"   7 seconds ago   Up 6 seconds   127.0.0.1:8889->80/tcp   rbm-dkr-02
+root@u-45755:/home/user/Docker# curl 127.0.0.1:8889
+Welcome to the training program RebrainMe: Docker!
+root@u-45755:/home/user/Docker# docker exec -ti rbm-dkr-02 md5sum /etc/nginx/nginx.conf
+e70dedb61d0c305b855088ca7bf3742a  /etc/nginx/nginx.conf
